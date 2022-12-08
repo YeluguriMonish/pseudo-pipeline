@@ -15,5 +15,11 @@ node {
 
         echo "$blueTargets"
         echo "$greenTargets"
+
+        greenTargets.each { target ->
+          target["car"]= "toyota"
+        }
+
+        echo "$greenTargets"
     }
 }
