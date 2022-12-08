@@ -1,7 +1,8 @@
 node {
-    def mvnHome
-    stage('Preparation') { // for display purposes
-        def world = "mars"
-        echo "hello $world"
+    stage('Preparation') {
+        def world = [{"name": "john"}]
+        world.each { target ->
+        echo "target.name"
+        }
     }
 }
