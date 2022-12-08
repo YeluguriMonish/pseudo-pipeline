@@ -29,29 +29,23 @@ node {
               break
           }
 
-          try {
-            if (deployStep == "blue") {
-              echo "blue"
-              echo "target.name"
-              env.add("age=${target.age}")
-              for (greenTarget in greenTargets) {
-                if (target.name == greenTarget[0].name) {
-                  greenTarget[1].add(env)
-                }
+          if (deployStep == "blue") {
+            echo "blue"
+            echo "target.name"
+            env.add("age=${target.age}")
+            for (greenTarget in greenTargets) {
+              if (target.name == greenTarget[0].name) {
+                greenTarget[1].add(env)
               }
             }
+          }
 
-            if (deployStep == "green") {
-              withEnv(env) {
-                echo $target.name
-                echo $env.age
-              }
+          if (deployStep == "green") {
+            withEnv(env) {
+              echo $target.name
+              echo $env.age
             }
-
-          } catch (reason) {
-              echo $reason
           }
         }
-
-    }
+}
 }
