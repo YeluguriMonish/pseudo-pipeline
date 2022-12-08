@@ -12,7 +12,8 @@ node {
             greenTargets.add(target)
           }
         }
-        echo $blueTargets
-        echo $greenTargets
+
+        echo "$blueTargets"
+        echo "$greenTargets"
     }
 }
