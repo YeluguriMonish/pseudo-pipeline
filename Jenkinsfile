@@ -37,8 +37,10 @@ node {
                 }
               }
             } else if (step == 'green') {
-              echo "$target[0]"
-              echo "$target[1]"
+              a = target[0]
+              b = target[1]
+              echo "$a"
+              echo "$b"
             }
           } catch (Exception e) {
             echo "$e"
