@@ -31,7 +31,7 @@ node {
           try {
             if (step == 'blue') {
               echo "$target.name"
-              echo "$target.age"
+              env['age']= target.age
               greenTargets.each { greenTarget ->
                 if (target.name == greenTarget.name) {
                   greenTarget[1].plus(env)
