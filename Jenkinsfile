@@ -34,7 +34,7 @@ node {
               env['age']= target.age
               greenTargets.each { greenTarget ->
                 if (target.name == greenTarget.name) {
-                  greenTarget[1].plus(env)
+                  greenTarget[1].putAll(env)
                 }
               }
             } else if (step == 'green') {
