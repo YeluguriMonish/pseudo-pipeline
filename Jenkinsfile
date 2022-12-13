@@ -14,7 +14,7 @@ node {
           }
         }
 
-        while true {
+        while (true) {
           if blueTargets (!blueTargets.isEmpty()) {
             target = blueTargets.pop()
             step = "blue"
