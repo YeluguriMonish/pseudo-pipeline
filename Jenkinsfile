@@ -12,13 +12,13 @@ node {
         targets.each { target ->
           if (target.deployTo == 'gaia') {
             blueTargets.add(target)
-            greenTargets.add([target,[]])
+            greenTargets.add([target,[:]])
           }
         }
 
         while (retry) {
           if (!blueTargets.isEmpty()) {
-            env = []
+            env = [:]
             target = blueTargets.pop()
             step = "blue"
           } else if (!greenTargets.isEmpty()) {
