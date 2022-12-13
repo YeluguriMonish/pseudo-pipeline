@@ -41,6 +41,7 @@ node {
               echo "$target"
             }
           } catch (Exception e) {
+            echo "$e"
             if ( step == 'blue') {
               blueTargets.push(target)
             } else if (step == 'green') {
