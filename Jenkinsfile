@@ -34,6 +34,7 @@ node {
               env['age']= target.age
               greenTargets.each { greenTarget ->
                 if (target.name == greenTarget.name) {
+                  echo "green target $greenTarget"
                   greenTarget[1].putAll(env)
                 }
               }
