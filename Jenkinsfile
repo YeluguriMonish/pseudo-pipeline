@@ -6,6 +6,8 @@ node {
         def blueTargets = []
         def greenTargets = []
         String step = "blue"
+        retry = true
+        retryCount = 0
 
         targets.each { target ->
           if (target.deployTo == 'gaia') {
@@ -14,7 +16,7 @@ node {
           }
         }
 
-        while (true) {
+        while (retry) {
           if (!blueTargets.isEmpty()) {
             target = blueTargets.pop()
             step = "blue"
@@ -27,9 +29,9 @@ node {
 
           try {
             if (step == 'blue') {
-              echo "$target.name"
+              echo "$target.nome"
             } else if (step == 'green') {
-              echo "target.name"
+              echo "$target.name"
             }
           } catch (Exception e) {
             if ( step == 'blue') {
@@ -37,6 +39,11 @@ node {
             } else if (step == 'green') {
               blueTargets.push(target)
               greenTargets.push(target)
+            }
+            retryCount++
+            if (retryCount > 3) {
+              retry = false
+              echo "retry count exceeded, exiting loop"
             }
           }
         }
