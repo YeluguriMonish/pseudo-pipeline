@@ -12,12 +12,13 @@ node {
         targets.each { target ->
           if (target.deployTo == 'gaia') {
             blueTargets.add(target)
-            greenTargets.add(target)
+            greenTargets.add([target,[]])
           }
         }
 
         while (retry) {
           if (!blueTargets.isEmpty()) {
+            env = []
             target = blueTargets.pop()
             step = "blue"
           } else if (!greenTargets.isEmpty()) {
@@ -29,9 +30,15 @@ node {
 
           try {
             if (step == 'blue') {
-              echo "$torget.name"
-            } else if (step == 'green') {
               echo "$target.name"
+              env[age]= target.age
+              greenTargets.each { greenTarget ->
+                if (target.name == greenTarget.name) {
+                  greenTarget[1].plus(env)
+                }
+              }
+            } else if (step == 'green') {
+              echo "$target"
             }
           } catch (Exception e) {
             if ( step == 'blue') {
