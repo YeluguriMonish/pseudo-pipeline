@@ -30,16 +30,15 @@ node {
 
           try {
             if (step == 'blue') {
-              echo "$target.name"
               env['age'] = target.age
               greenTargets.each { greenTarget ->
                 if (target.name == greenTarget[0].name) {
                   greenTarget[1].putAll(env)
-                  echo "green target $greenTarget"
                 }
               }
             } else if (step == 'green') {
-              echo "$target"
+              echo "$target[0]"
+              echo "$target[1]"
             }
           } catch (Exception e) {
             echo "$e"
