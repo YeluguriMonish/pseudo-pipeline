@@ -27,9 +27,9 @@ node {
 
           try {
             if (step == 'blue') {
-              echo "blue deployment"
+              echo "$target.name"
             } else if (step == 'green') {
-              echo "green deployment"
+              echo "target.name"
             }
           } catch (Exception e) {
             if ( step == 'blue') {
