@@ -33,8 +33,8 @@ node {
               echo "$target.name"
               greenTargets.each { greenTarget ->
                 if (target.name == greenTarget[0].name) {
-                echo "green target $greenTarget"
                   greenTarget[1].putAll(env)
+                  echo "green target $greenTarget"
                 }
               }
             } else if (step == 'green') {
