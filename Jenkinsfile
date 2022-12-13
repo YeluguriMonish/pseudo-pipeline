@@ -29,7 +29,7 @@ node {
 
           try {
             if (step == 'blue') {
-              echo "$target.nome"
+              echo "$torget.name"
             } else if (step == 'green') {
               echo "$target.name"
             }
