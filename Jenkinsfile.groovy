@@ -49,7 +49,8 @@ node {
             if ( step == 'blue') {
               blueTargets.push(target)
             } else if (step == 'green') {
-              blueTargets.push(target)
+              echo "in green catch block"
+              blueTargets.push(target[0])
               greenTargets.push(target)
             }
             retryCount++
