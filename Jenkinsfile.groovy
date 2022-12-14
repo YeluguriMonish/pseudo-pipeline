@@ -28,6 +28,9 @@ node {
             break
           }
 
+          echo "blue targets: $blueTargets"
+          echo "green targets: $greenTargets"
+
           try {
             if (step == 'blue') {
               env['age'] = target.age
@@ -39,8 +42,7 @@ node {
             } else if (step == 'green') {
               a = target[0]
               b = target[1]
-              echo "$a"
-              echo "$b"
+              force error
             }
           } catch (Exception e) {
             echo "$e"
