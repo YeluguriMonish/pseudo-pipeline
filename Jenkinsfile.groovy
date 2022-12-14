@@ -28,6 +28,7 @@ node {
             break
           }
 
+          echo "current target type: $step current target: $target"
           echo "blue targets: $blueTargets"
           echo "green targets: $greenTargets"
 
